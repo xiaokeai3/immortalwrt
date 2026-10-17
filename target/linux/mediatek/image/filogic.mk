@@ -2520,6 +2520,25 @@ define Device/zyxel_ex5700-telenor
 endef
 TARGET_DEVICES += zyxel_ex5700-telenor
 
+define Device/nradio_wt9104
+  DEVICE_VENDOR := NRadio
+  DEVICE_MODEL := WT9104 (C8-688)
+  
+  DEVICE_DTS := mt7981-nradio-wt9104
+  
+  DEVICE_PACKAGES := \
+    kmod-mt7915e \
+    kmod-mt7981-firmware \
+    kmod-mmc-mtk \
+    kmod-usb3 \
+    kmod-hwmon-pwmfan \
+    kmod-gpio-export \
+    kmod-dsa-mt7531 \
+    kmod-phy-realtek
+  
+  SUPPORTED_DEVICES := hcmt7981-emmc nradio,c8-688 nradio,wt9104
+endef
+TARGET_DEVICES += nradio_wt9104
 define Device/zyxel_nwa50ax-pro
   DEVICE_VENDOR := Zyxel
   DEVICE_MODEL := NWA50AX Pro
@@ -2537,3 +2556,5 @@ define Device/zyxel_nwa50ax-pro
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 TARGET_DEVICES += zyxel_nwa50ax-pro
+
+
